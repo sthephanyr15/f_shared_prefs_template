@@ -15,11 +15,6 @@ class _MyAppState extends State<MyApp> {
   AuthenticationController authenticationController = Get.find();
 
   @override
-  initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
