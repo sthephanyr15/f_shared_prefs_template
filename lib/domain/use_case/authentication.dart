@@ -1,3 +1,5 @@
+import 'package:shared_preferences/shared_preferences.dart';
+
 import '../../data/repositories/local_preferences.dart';
 
 class Authentication {
@@ -11,6 +13,11 @@ class Authentication {
       await _sharedPreferences.retrieveData<bool>('logged') ?? false;
 
   Future<bool> login(user, password) async {
+    String user = await SharedPreferences.getInstance('user', user);
+    if (user == 'a@a.com')
+      return Future.value(true);
+    else
+      return Future.value(false);
     // verificar si user y password coinciden con los almacenados
     // en ese caso cambiar el estado de loggeed y devolver  Future.value(true);
   }
@@ -20,6 +27,12 @@ class Authentication {
   }
 
   void logout() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final bool logged = prefs.getBool('Logged') ?? false;
+    if (logged != false) {
+      prefs.setBool('Logged', false);
+    }
+    ;
     // cambiar loggeed
   }
 }
