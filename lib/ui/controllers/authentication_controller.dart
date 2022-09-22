@@ -23,6 +23,7 @@ class AuthenticationController extends GetxController {
   // para cada uno llamar los métodos del use_case authentication
 
   Future<bool> login(user, password) async {
+    
     return true;
   }
 
