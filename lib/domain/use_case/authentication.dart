@@ -14,10 +14,10 @@ class Authentication {
 
   Future<bool> login(user, password) async {
     //String user = await SharedPreferences.getInstance('user', user);
-    var user = await _sharedPreferences.retrieveData<String>('user');
-    var password = await _sharedPreferences.retrieveData<String>('password');
+    var usr = await _sharedPreferences.retrieveData<String>('user');
+    var pass = await _sharedPreferences.retrieveData<String>('password');
     // verificar si user y password coinciden con los almacenados
-    if (user == user && password == password) {
+    if (usr == user && pass == password) {
       // en ese caso cambiar el estado de loggeed y devolver  Future.value(true);
       await _sharedPreferences.storeData<bool>('logged', true);
       return Future.value(true);
